@@ -1,6 +1,37 @@
 package _04_HangMan;
 
-public class HangMan{
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class HangMan implements KeyListener{
+
+	
+	
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 	
