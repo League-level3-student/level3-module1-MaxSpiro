@@ -1,7 +1,13 @@
 package _06_Intro_To_Hash_Maps;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.HashMap;
 
-public class _02_LogSearch {
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class _02_LogSearch implements KeyListener{
   /* 
 	 * Crate a HashMap of Integers for the keys and Strings for the values.
 	 * Create a GUI with three buttons. 
@@ -29,5 +35,53 @@ public class _02_LogSearch {
 	 * 				is not in the list. 
 	 *
 	 * */
-	
+		static HashMap<Integer,String> h = new HashMap<Integer,String>();
+		public void run() {
+			JFrame frame = new JFrame();
+			frame.addKeyListener(this);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
+		}
+		public static void add() {
+			int id = Integer.parseInt(JOptionPane.showInputDialog("Enter an ID number"));
+			String name = JOptionPane.showInputDialog("Enter a name");
+			h.put(id,name);
+		}
+		public static void search() {
+			int id = Integer.parseInt(JOptionPane.showInputDialog("Enter an ID number"));
+			if(h.containsKey(id)) {
+				System.out.println(h.get(id));
+			} else {
+				System.out.println("An entry with the ID "+id+" does not exist.");
+			}
+		}
+		public static void view() {
+			for (int i : h.keySet()) {
+				System.out.println("ID: "+i+"  Name: "+ h.get(i));
+			}
+			
+		}
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
+			if(e.getKeyChar()=='a') {
+				add();
+			}
+			if(e.getKeyChar()=='s') {
+				search();
+			}
+			if(e.getKeyChar()=='v') {
+				view();
+			}
+		}
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 }
